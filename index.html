@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MétricaVidros | Soluções em Vidro e Instalações de Alto Padrão</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ESTRUTURA: CABEÇALHO FIXO COM MENU HAMBÚRGUER RESPONSIVO -->
+    <header class="header">
+        <div class="logo">Métrica<span>Vidros</span></div>
+        
+        <!-- Input checkbox: gatilho invisível para disparar o menu hambúrguer via CSS -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger-btn"><span></span><span></span><span></span></label>
+
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#agendar">Agendar Orçamento</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SEÇÃO: APRESENTAÇÃO PRINCIPAL (HERO) -->
+        <section id="inicio" class="hero">
+            <article class="hero-content">
+                <h1>Vidros sob medida para transformar sua casa</h1>
+                <p>Instalação rápida de box para banheiro, espelhos decorativos e fechamentos com a segurança e garantia que sua obra merece.</p>
+                <a href="#agendar" class="btn-cta">Agendar Orçamento Grátis</a>
+            </article>
+            <figure class="hero-image">
+                <img src="assets/img/topo-hero/img-topo.jpg" alt="Box de Banheiro Moderno">
+            </figure>
+        </section>
+
+        <!-- SEÇÃO: VITRINE DE SERVIÇOS E ESPECIALIDADES -->
+        <section id="servicos" class="services">
+            <h2>Nossas Especialidades</h2>
+            <div class="services-grid">
+                
+                <!-- CARD: BOX PARA BANHEIRO -->
+                <article class="service-card">
+                    <div class="service-img-group">
+                        <!-- Foto Principal -->
+                        <img src="assets/img/especialidade1/img-box1.jpg" class="active-thumb" alt="Box para Banheiro - Modelo 1">
+                        <!-- Galeria Oculta (Lightbox) -->
+                        <img src="assets/img/especialidade1/img-box2.jpg" style="display: none;" alt="Box para Banheiro - Modelo 2">
+                        <img src="assets/img/especialidade1/img-box3.jpg" style="display: none;" alt="Box para Banheiro - Modelo 3">
+                    </div>
+                    <h3>Box para Banheiro</h3>
+                </article>
+
+                <!-- CARD: ESPELHOS SOB MEDIDA -->
+                <article class="service-card">
+                    <div class="service-img-group">
+                        <!-- Foto Principal -->
+                        <img src="assets/img/especialidade2/img-espelho1.jpg" class="active-thumb" alt="Espelhos Sob Medida - Modelo 1">
+                        <!-- Galeria Oculta (Lightbox) -->
+                        <img src="assets/img/especialidade2/img-espelho2.jpg" style="display: none;" alt="Espelhos Sob Medida - Modelo 2">
+                        <img src="assets/img/especialidade2/img-espelho3.jpg" style="display: none;" alt="Espelhos Sob Medida - Modelo 3">
+                    </div>
+                    <h3>Espelhos Sob Medida</h3>
+                </article>
+
+                <!-- CARD: FECHAMENTO DE SACADAS -->
+                <article class="service-card">
+                    <div class="service-img-group">
+                        <!-- Foto Principal -->
+                        <img src="assets/img/especialidade3/img-sacada1.jpg" class="active-thumb" alt="Fechamento de Sacadas - Modelo 1">
+                       <!-- Galeria Oculta (Lightbox) -->
+                        <img src="assets/img/especialidade3/img-sacada2.jpg" style="display: none;" alt="Fechamento de Sacadas - Modelo 2">
+                        <img src="assets/img/especialidade3/img-sacada3.jpg" style="display: none;" alt="Fechamento de Sacadas - Modelo 3">
+                    </div>
+                    <h3>Fechamento de Sacadas</h3>
+                </article>
+
+                <!-- CARD: PORTAS E JANELAS -->
+                <article class="service-card">
+                    <div class="service-img-group">
+                        <!-- Foto Principal -->
+                        <img src="assets/img/especialidade4/img-1.jpg" class="active-thumb" alt="Portas e Janelas - Modelo 1">
+                       <!-- Galeria Oculta (Lightbox) -->
+                        <img src="assets/img/especialidade4/img-2.jpg" style="display: none;" alt="Portas e Janelas - Modelo 2">
+                        <img src="assets/img/especialidade4/img-3.jpg" style="display: none;" alt="Portas e Janelas - Modelo 3">
+                    </div>
+                    <h3>Portas e Janelas</h3>
+                </article>
+
+            </div>
+        </section>
+
+                <!-- SEÇÃO: LINHA DO TEMPO DO ATENDIMENTO -->
+        <section id="como-funciona" class="how-it-works">
+            <h2>Como Funciona Nosso Atendimento?</h2>
+            <p class="section-subtitle">Do primeiro contato até a entrega, um processo ágil e sem complicações.</p>
+            
+            <div class="timeline-grid">
+                <!-- Passo 1 -->
+                <article class="timeline-item">
+                    <div class="step-number">1</div>
+                    <h3>Contato Inicial</h3>
+                    <p>Você preenche o formulário ou nos chama diretamente no botão do WhatsApp.</p>
+                </article>
+
+                <!-- Passo 2 -->
+                <article class="timeline-item">
+                    <div class="step-number">2</div>
+                    <h3>Agendamento Grátis</h3>
+                    <p>Combinamos o melhor dia para enviar um técnico especialista até o seu local.</p>
+                </article>
+
+                <!-- Passo 3 -->
+                <article class="timeline-item">
+                    <div class="step-number">3</div>
+                    <h3>Medição e Escolha</h3>
+                    <p>Tiramos as medidas milimétricas e ajudamos você a escolher o melhor tipo de vidro.</p>
+                </article>
+
+                <!-- Passo 4 -->
+                <article class="timeline-item">
+                    <div class="step-number">4</div>
+                    <h3>Instalação e Limpeza</h3>
+                    <p>Nossa equipe própria monta a estrutura com rapidez, segurança e organização total.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CAPTAÇÃO DE LEADS (MEGA CARD UNIFICADO) -->
+        <section id="agendar" class="appointment">
+            <div class="appointment-grid-container">
+                
+                <!-- CONTEÚDO INFORMATIVO (LADO ESQUERDO) -->
+                <div class="appointment-info-content">
+                    <h2>Solicite uma Visita Técnica Gratuita</h2>
+                    <p class="appointment-subtitle">Não sabe as medidas exatas? Não se preocupe! Nós enviamos um especialista até você.</p>
+                    
+                    <ul class="appointment-features">
+                        <li><strong>📍 Atendimento Local:</strong> Vamos até sua casa ou empresa em São Paulo e região.</li>
+                        <li><strong>📐 Medição Precisa:</strong> Evite erros no projeto, medimos tudo milimetricamente.</li>
+                        <li><strong>💬 Consultoria Técnica:</strong> Avaliamos a melhor espessura e tipo de vidro para seu espaço.</li>
+                        <li><strong>💰 Zero Custo:</strong> A visita para orçamento é 100% gratuita e sem compromisso.</li>
+                    </ul>
+                </div>
+
+                <!-- FORMULÁRIO DE ORÇAMENTO AUTOMATIZADO (LADO DIREITO) -->
+                <form class="appointment-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp / Telefone</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servico-select">Qual serviço você precisa?</label>
+                        <select id="servico-select" name="servico" required>
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="box">Box para Banheiro</option>
+                            <option value="espelho">Espelhos Sob Medida</option>
+                            <option value="sacada">Fechamento de Sacada</option>
+                            <option value="outro">Outros Serviços</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Detalhes do Projeto (Opcional)</label>
+                        <textarea id="mensagem" name="mensagem" rows="3" placeholder="Ex: Preciso de um box de vidro temperado..."></textarea>
+                    </div>
+
+                     <!-- BLINDAGEM JURÍDICA: CONSENTIMENTO DE CONTRATO LGPD -->
+                    <div class="form-group-checkbox">
+                        <input type="checkbox" id="lgpd-consent" name="lgpd-consent" required>
+                        <label for="lgpd-consent">
+                            Li e concordo com a <a href="#privacidade" id="open-privacy">Política de Privacidade</a> para fins de atendimento.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Enviar Pedido de Agendamento</button>
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- SEÇÃO: DIFERENCIAIS DE MERCADO -->
+        <section class="benefits">
+            <h2>Por que escolher a nossa Vidraçaria?</h2>
+            <div class="benefits-grid">
+                <article class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Vidros Certificados</h3>
+                    <p>Trabalhamos apenas com vidros temperados e laminados com selo de segurança do Inmetro.</p>
+                </article>
+                <article class="benefit-item">
+                    <div class="benefit-icon">⏱️</div>
+                    <h3>Prazo Garantido</h3>
+                    <p>Agilidade na fabricação e instalação para não travar o andamento da sua obra.</p>
+                </article>
+                <article class="benefit-item">
+                    <div class="benefit-icon">👷‍♂️</div>
+                    <h3>Equipe Especializada</h3>
+                    <p>Instaladores próprios e experientes que seguem todas as normas técnicas da ABNT.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DEPOIMENTOS DE CLIENTES -->
+        <section id="depoimentos" class="testimonials">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Instalaram o box do meu banheiro em tempo recorde. Tudo muito limpo e bem acabado. Recomendo muito!"</p>
+                    <h4>Mariana Souza</h4>
+                    <span>São Paulo - SP</span>
+                </article>
+                <article class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Fiz o fechamento da sacada do meu apartamento. Preço justo, equipe educada e o acabamento ficou impecável."</p>
+                    <h4>Carlos Eduardo</h4>
+                    <span>Campinas - SP</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: PERGUNTAS FREQUENTES (FAQ) -->
+        <section id="faq" class="faq">
+            <h2>Dúvidas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">Qual é o prazo médio de instalação? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>O prazo varia de 7 a 15 dias úteis após a medição final na sua casa, dependendo da complexidade do vidro.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Vocês cobram pela visita de orçamento? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Não! A nossa visita técnica para tirar as medidas e apresentar as opções de acabamento é 100% gratuita.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ESTRUTURA: RODAPÉ INSTITUCIONAL E HORÁRIOS -->
+    <footer class="footer">
+        <p class="working-hours">🕒 Horário de Atendimento: Segunda a Sexta das 08h às 18h | Sábado das 09h às 13h</p>
+        <p>&copy; 2026 Métrica Vidros. Atendemos São Paulo e Região Metropolitana.</p>
+        <p class="credits">Desenvolvido por <a href="https://wa.me/5511988358281" target="_blank">WhatsLittle</a></p>
+    </footer>
+
+    <!-- INTERAÇÃO: CANAL DIRETO (BOTÃO FLUTUANTE WHATSAPP) -->
+    <a href="https://wa.me" class="whatsapp-float" target="_blank" aria-label="Chamar no WhatsApp">
+        <!-- O código abaixo desenha o telefone oficial do WhatsApp direto na tela -->
+        <svg xmlns="http://w3.org" viewBox="0 0 448 512" style="width: 32px; height: 32px; fill: #FFFFFF;">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+    
+    <!-- INTERAÇÃO: GALERIA EXPANSÍVEL EM TELA CHEIA (LIGHTBOX) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-nav nav-left">&#10094;</span> <!-- Seta Esquerda -->
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Visualização ampliada">
+        <span class="lightbox-nav nav-right">&#10095;</span> <!-- Seta Direita -->
+    </div>
+
+    <!-- PRIVACIDADE: POP-UP DE PRIVACIDADE COMPACTO (LGPD) -->
+    <div id="privacy-modal" class="privacy-modal" style="display: none;">
+        <div class="privacy-modal-content">
+            <span class="privacy-close">&times;</span>
+            <h2>Política de Privacidade - MétricaVidros</h2>
+            <div class="privacy-text-body">
+                <p>A <strong>MétricaVidros</strong> valoriza a sua privacidade. Esta política explica como tratamos seus dados pessoais, em total conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+                
+                <h3>1. Dados Coletados</h3>
+                <p>Coletamos exclusivamente os dados fornecidos voluntariamente por você em nosso formulário: Nome Completo e número de WhatsApp/Telefone.</p>
+                
+                <h3>2. Finalidade do Tratamento</h3>
+                <p>Estes dados são utilizados unicamente para entrar em contato com você, tirar dúvidas e agendar a sua visita técnica ou orçamento gratuito de vidros.</p>
+                
+                <h3>3. Armazenamento e Compartilhamento</h3>
+                <p>Seus dados <strong>não são salvos em bancos de dados na internet</strong> e não são compartilhados com nenhuma outra empresa ou terceiros. O formulário funciona como um canal direto de envio para o nosso WhatsApp corporativo protegido.</p>
+                
+                <h3>4. Seus Direitos</h3>
+                <p>Você pode, a qualquer momento, solicitar a exclusão de suas mensagens e dados de nossos contatos diretamente pelo nosso canal de atendimento.</p>
+                
+                <p style="margin-top: 20px; font-size: 0.85rem; color: #A0AEC0;">Última atualização: Junho de 2026. Desenvolvido por Agência WhatsLittle.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,934 @@
+/* =============================================
+   CONFIGURAÇÕES GLOBAIS, RESETS E ROLAGEM SUAVE
+   ============================================= */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F9FA;
+    color: #333333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+/* ==========================================
+   ESTRUTURA: CABECALHO FIXO NO TOPO COM MENU
+   ========================================== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: #0B2545; 
+    cursor: pointer;
+    transition: color 0.4s ease; 
+}
+
+.logo span { 
+    color: #D65A31; 
+    transition: color 0.4s ease; 
+}
+
+/* Interação Hover Swap: Inversão elegante de cores da marca */
+.logo:hover { color: #D65A31; }
+
+.logo:hover span { color: #0B2545; }
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #0B2545;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover { 
+    color: #D65A31;
+}
+
+/* Ocultação nativa de elementos mobile na versão Desktop */
+.menu-toggle { display: none; }
+.hamburger-btn { display: none; }
+
+/* ======================================================
+   RESPONSIVIDADE: ENGENHARIA DO MENU HAMBÚRGUER (MOBILE)
+   ====================================================== */
+@media (max-width: 768px) {
+    /* Ativa o botão dos 3 tracinhos apenas em telas de smartphones */
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 3000;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #0B2545; /* Cor azul-marinho dos traços */
+        border-radius: 2px;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Transforma a navbar em um painel flutuante recolhido à direita */
+    .navbar {
+        position: fixed;
+        top: 70px;
+        right: -100%; /* Joga o menu para fora da tela */
+        width: 260px;
+        height: calc(100vh - 70px); /* Cálculo dinâmico para preencher a altura exata da tela livre */
+        background-color: #FFFFFF;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 2900;
+    }
+
+    /* Alinhamento vertical dos links no ambiente mobile */
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        gap: 25px;
+        list-style: none;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        font-size: 1.1rem;
+        color: #0B2545;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    /* Truque do Seletor Irmão (~): Ativação mecânica via CSS puro sem JavaScript */
+    .menu-toggle:checked ~ .navbar { right: 0; }
+
+    /* Transforma os 3 traços em um ícone de fechar (X) de forma automática */
+    .menu-toggle:checked ~ .hamburger-btn span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle:checked ~ .hamburger-btn span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked ~ .hamburger-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* =====================================
+   SEÇÃO: APRESENTAÇÃO PRINCIPAL (HERO)
+   ===================================== */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0px 60px 5%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.hero-content { 
+    flex: 1 1 500px;
+    margin-right: 40px;
+}
+
+.hero-content h1 { 
+    font-size: 2.8rem; 
+    color: #0B2545; 
+    line-height: 1.2; 
+    margin-bottom: 20px; 
+}
+
+.hero-content p { 
+    font-size: 1.1rem; 
+    color: #666666; 
+    margin-bottom: 30px; 
+}
+
+/* COMPONENTE: BOTÃO DE CHAMADA PARA AÇÃO PRINCIPAL (CTA) */
+.btn-cta {
+    display: inline-block;
+    background-color: #25D366;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-cta:hover { 
+    transform: translateY(-2px); 
+    background-color: #20ba59; 
+}
+
+.hero-image { 
+    flex: 1 1 500px;
+    height: 100%; /* Força o bloco a ter a altura total do alinhamento */
+}
+
+.hero-image img { 
+    width: 100%; 
+    height: 450px; /* Travamos uma altura imponente para ela preencher o bloco */
+    object-fit: cover; 
+    border-radius: 0px;
+    box-shadow: none;
+
+     /* DESIGN AVANÇADO: Fusão suave da foto com o fundo cinza lateral */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000000 30%);
+    mask-image: linear-gradient(to right, transparent 0%, #000000 30%);
+}
+
+/* RESPONSIVIDADE: AJUSTE DA SEÇÃO HERO */
+@media (max-width: 968px) {
+    .hero {
+        padding: 40px 5%; 
+    }
+    .hero-content {
+        margin-right: 0;
+    }
+    .hero-image img {
+        height: 250px;
+        border-radius: 8px;
+
+        /* GARANTIA PARA A ESTABILIDADE NAS TELAS DE SMARTPHONES: */
+        transform: translate3d(0, 0, 0);
+        filter: blur(0);
+    }
+}
+
+/* ===================================================
+   SEÇÃO: VITRINE DE SERVIÇOS E ESPECIALIDADES (GRID)
+   =================================================== */
+.services {
+    background-color: #0B2545;
+    padding: 80px 5%;
+    width: 100%;
+}
+
+.services h2 { 
+    text-align: center; 
+    color: #FFFFFF; 
+    font-size: 2.5rem; 
+    margin-bottom: 50px; 
+    font-weight: 700; 
+}
+
+.services-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    justify-content: center; 
+}
+
+.service-card { 
+    background-color: #FFFFFF; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+    text-align: center; 
+    transition: transform 0.3s ease; 
+}
+
+.service-card:hover { 
+    transform: translateY(-5px); 
+}
+
+.service-card img.active-thumb { 
+    width: 100%; 
+    height: 240px; 
+    object-fit: cover; 
+    margin-bottom: 20px; 
+    border-radius: 8px; 
+    cursor: zoom-in;
+}
+
+.service-card h3 { 
+    color: #0B2545; 
+    font-size: 1.3rem; 
+    font-weight: 600; 
+}
+
+/* =================================================
+   SEÇÃO: LINHA DO TEMPO E PROCESSOS DE ATENDIMENTO
+   ================================================= */
+.how-it-works {
+    padding: 80px 5%;
+    background-color: #F8F9FA; 
+}
+
+.how-it-works h2 {
+    text-align: center;
+    color: #0B2545;
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666666;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #EAEAEA;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #D65A31; 
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 10px rgba(214, 90, 49, 0.2);
+}
+
+.timeline-item h3 {
+    color: #0B2545;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   SEÇÃO: CAPTAÇÃO DE LEAD (CONCEITO MEGA CARD)
+   ============================================ */
+.appointment {
+    padding: 80px 5%;
+    background-color: #0B2545;
+}
+
+/* CONTAINER INTEGRADO: Bloco unificado */
+.appointment-grid-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: radial-gradient(circle, #0F315C 0%, #061629 100%); 
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid #D65A31; 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    align-items: center;
+}
+
+/* CONTEÚDO INFORMATIVO (LADO ESQUERDO DO MEGA CARD) */
+.appointment-info-content h2 { 
+    color: #FFFFFF;
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.appointment-subtitle { 
+    color: #A0AEC0;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+.appointment-features { 
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.appointment-features li {
+    font-size: 0.95rem;
+    color: #E2E8F0;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.appointment-features strong {
+    color: #FFFFFF;
+}
+
+/* COMPONENTE: ESTRUTURA DOS CAMPOS DO FORMULÁRIO (LADO DIREITO) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #081B33; 
+    color: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* INTERAÇÃO FOCUS: Acendimento responsivo imediato da borda ao clicar */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #D65A31;
+}
+
+/* ===============================================
+   FORMULÁRIO: CAMPO DE CONSENTIMENTO LEGAL (LGPD)
+   =============================================== */
+.form-group-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #D65A31;
+}
+
+.form-group-checkbox label {
+    font-size: 0.9rem;
+    color: #E2E8F0;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.form-group-checkbox label a {
+    color: #D65A31;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.form-group-checkbox label a:hover {
+    color: #FFFFFF;
+}
+
+/* COMPONENTE: BOTÃO DE SUBMISSÃO DO FORMULÁRIO */
+.btn-submit {
+    width: 100%;
+    background-color: #D65A31;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-submit:hover { 
+    background-color: #B4451F; 
+}
+
+.btn-submit:active { 
+    transform: scale(0.98); 
+}
+
+/* RESPONSIVIDADE DO MEGA CARD PARA AMBIENTE MOBILE */
+@media (max-width: 968px) {
+    .appointment-grid-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+}
+
+/* =============================================
+   SEÇÃO: DIFERENCIAIS DE VALOR E CONFIABILIDADE
+   ============================================= */
+.benefits { 
+    padding: 80px 5%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.benefits h2 { 
+    text-align: center; 
+    color: #0B2545; 
+    font-size: 2.3rem; 
+    margin-bottom: 50px; 
+}
+
+.benefits-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; 
+}
+
+.benefit-item { 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.benefit-icon { 
+    font-size: 3rem; 
+    margin-bottom: 15px; 
+}
+
+.benefit-item h3 { 
+    color: #0B2545; 
+    font-size: 1.4rem; 
+    margin-bottom: 10px; 
+}
+
+.benefit-item p { 
+    color: #666666; 
+    font-size: 1rem; 
+}
+
+/* =================================
+   SEÇÃO: DEPOIMENTOS DE CLIENTES 
+   ================================= */
+.testimonials { 
+    background-color: #0B2545; 
+    padding: 80px 5%; 
+    width: 100%; 
+}
+
+.testimonials h2 { 
+    text-align: center; 
+    color: #FFFFFF; 
+    font-size: 2.3rem; 
+    margin-bottom: 50px; 
+}
+
+.testimonials-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    justify-content: center; 
+}
+
+.testimonial-card { 
+    background-color: #FFFFFF; 
+    padding: 30px; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+}
+
+.stars { 
+    color: #FFD700; 
+    margin-bottom: 15px; 
+    font-size: 1.1rem; 
+}
+
+.testimonial-card p { 
+    color: #333333; 
+    font-style: italic; 
+    margin-bottom: 20px; 
+    font-size: 1rem; 
+}
+
+.testimonial-card h4 { 
+    color: #0B2545; 
+    font-size: 1.1rem; 
+    margin-bottom: 2px; 
+}
+
+.testimonial-card span { 
+    color: #888888; 
+    font-size: 0.85rem; 
+}
+
+/* ===================================================
+   SEÇÃO: INTERATIVIDADE DE DÚVIDAS FREQUENTES (FAQ)
+   =================================================== */
+.faq { 
+    padding: 80px 5%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.faq h2 { 
+    text-align: center; 
+    color: #0B2545; 
+    font-size: 2.3rem; 
+    margin-bottom: 40px; 
+}
+
+.faq-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.faq-item { 
+    background-color: #FFFFFF; 
+    border: 1px solid #EAEAEA; 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.faq-question { 
+    width: 100%; 
+    background: none; 
+    border: none; 
+    padding: 20px; 
+    text-align: left; 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    color: #0B2545; 
+    cursor: pointer; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.faq-question span { 
+    font-size: 1.5rem; 
+    color: #D65A31; 
+    transition: transform 0.2s; 
+}
+
+.faq-answer { 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.3s ease-out; 
+    background-color: #F8F9FA; 
+}
+
+.faq-answer p { 
+    padding: 0 20px 20px 20px; 
+    color: #555555; 
+    font-size: 1rem; 
+}
+
+.faq-item.active .faq-answer { 
+    max-height: 200px; 
+}
+
+.faq-item.active .faq-question span { 
+    transform: rotate(45deg); 
+}
+
+/* ========================================================
+   ESTRUTURA: RODAPÉ INSTITUCIONAL E HORÁRIOS DE EXPEDIENTE
+   ======================================================== */
+.working-hours {
+    font-size: 0.9rem;
+    color: #E2E8F0; 
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.footer { 
+    background-color: #0B2545; 
+    color: #FFFFFF; 
+    text-align: center; 
+    padding: 30px 20px; 
+    font-size: 0.9rem; 
+}
+
+/* BOTÃO FIXO WHATSAPP */
+.whatsapp-float { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    width: 60px; 
+    height: 60px; 
+    background-color: #25D366; 
+    border-radius: 50px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+    z-index: 1000; 
+}
+
+.whatsapp-float img { 
+    width: 35px; 
+    height: 35px;
+    border-radius: 0px;
+}
+
+/* ===================================================
+   INTERAÇÃO: ENGENHARIA DA TELA DE FUNDO DO LIGHTBOX
+   =================================================== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 2010;
+    pointer-events: auto;
+}
+
+.lightbox-close:hover {
+    color: #D65A31;
+}
+
+
+@keyframes zoomIn {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* ==========================================
+   INTERAÇÃO: SETAS DO CARROSSEL NO LIGHTBOX
+   ========================================== */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2005;
+    transition: color 0.2s;
+    -webkit-tap-highlight-color: transparent; /* UX MOBILE: Desativa o flash/quadrado azul */
+}
+
+.nav-left { left: 15px; }
+.nav-right { right: 15px; }
+
+.lightbox-nav:hover {
+    color: #FFFFFF;
+}
+
+/* RESPONSIVIDADE: AJUSTE DE ESCALA DOS BOTÕES NO MOBILE */
+@media (max-width: 768px) {
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .nav-left { left: 5px; }
+    .nav-right { right: 5px; }
+}
+
+
+/* ========================================================
+   INTERAÇÃO: JANELA FLUTUANTE DA POLÍTICA DE PRIVACIDADE
+   ======================================================== */
+.privacy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4000;
+    padding: 20px;
+}
+
+.privacy-modal-content {
+    background-color: #F8FAFC;
+    color: #0B2545; /* Texto interno no azul-marinho */
+    width: 85%;
+    max-width: 380px;
+    max-height: 45vh;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* COMPONENTE: FECHAMENTO DO TERMO JURÍDICO */
+.privacy-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #A0AEC0;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.privacy-close:hover {
+    color: #D65A31;
+}
+
+.privacy-modal h2 {
+    font-size: 1.5rem;
+    color: #0B2545;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+/* COMPONENTE: ÁREA DE TEXTO CORRENTE DA POLÍTICA */
+.privacy-text-body {
+    overflow-y: auto;
+    padding: 20px;
+    text-align: left;
+    overscroll-behavior: contain;
+    background-color: #FFFFFF; 
+    border-radius: 6px;
+    margin-top: 15px;
+    border: 1px solid #E2E8F0;
+}
+
+.privacy-text-body h3 {
+    font-size: 1.1rem;
+    color: #0B2545;
+    margin: 20px 0 10px 0;
+}
+
+.privacy-text-body p {
+    font-size: 0.95rem;
+    color: #4A5568;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* INTERAÇÃO: CUSTOMIZAÇÃO DA BARRA DE ROLAGEM DA POLÍTICA */
+.privacy-text-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.privacy-text-body::-webkit-scrollbar-track {
+    background-color: #F7FAFC;
+    border-radius: 4px;
+}
+
+.privacy-text-body::-webkit-scrollbar-thumb {
+    background-color: #CBD5E0;
+    border-radius: 4px;
+}
+
+/* ===========================================
+   ESTRUTURA: CRÉDITOS E IDENTIDADE DA AGÊNCIA
+   =========================================== */
+.credits {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #A0AEC0; 
+}
+
+.credits a {
+    color: #D65A31; 
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.credits a:hover {
+    color: #FFFFFF; 
+}
